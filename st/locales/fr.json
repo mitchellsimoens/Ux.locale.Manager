@@ -1,0 +1,23 @@
+{
+    "tabs" : {
+        "one"   : {
+            "html"  : "Ceci est le premier onglet",
+            "title" : "Onglet Abord"
+        },
+        "two"   : {
+            "html"  : "Ceci est le deuxième onglet",
+            "title" : "Deuxième Onglet"
+        },
+        "three" : {
+            "html"  : "C'est le troisième onglet",
+            "title" : "Troisième Onglet"
+        }
+    },
+    "buttons" : {
+        "cancel" : "Annuler",
+        "save"   : "Enregistrer"
+    },
+    "misc" : {
+        "bottomTitle" : "barre d'outils en bas"
+    }
+}

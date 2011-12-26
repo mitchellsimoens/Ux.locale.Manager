@@ -1,0 +1,23 @@
+{
+    "tabs" : {
+        "one"   : {
+            "html"  : "This is the first tab",
+            "title" : "First Tab"
+        },
+        "two"   : {
+            "html"  : "This is the second tab",
+            "title" : "Second Tab"
+        },
+        "three" : {
+            "html"  : "This is the third tab",
+            "title" : "Third Tab"
+        }
+    },
+    "buttons" : {
+        "cancel" : "Cancel",
+        "save"   : "Save"
+    },
+    "misc" : {
+        "bottomTitle" : "Bottom Toolbar"
+    }
+}

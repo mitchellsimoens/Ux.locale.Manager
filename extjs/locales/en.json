@@ -1,0 +1,20 @@
+{
+    "region"  : {
+        "center" : {
+            "title" : "Center Region"
+        },
+        "east"   : {
+            "title" : "East Region - Form"
+        }
+    },
+    "buttons" : {
+        "save" : "Save"
+    },
+    "fields"  : {
+        "labels" : {
+            "firstName"    : "First Name",
+            "lastName"     : "Last Name",
+            "chooseLocale" : "Choose Your Locale"
+        }
+    }
+}

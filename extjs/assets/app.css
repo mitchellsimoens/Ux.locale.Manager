@@ -1,0 +1,57 @@
+.add16 {
+   background-image: url(add.png);
+}
+h1 a:link, h1 a:visited {
+    color: #046BCA;
+}
+
+h1 a:hover, h1 a:focus, h1 a:active {
+    color: #1C417C;
+}
+
+div#header {
+    height: 65px;
+    width: 1090px;
+    padding: 25px 0 10px 0;
+    margin: 0 50px;
+}
+div#header h1 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+}
+form#styleswitcher, div#main-container {
+    background-color: #f3f3f3;
+    background-color: rgba(243,243,243,.333);
+    border: 1px solid #ddd;
+    border-color: rgba(221,221,221,.333);
+    border-radius:         8px;
+    -moz-border-radius:    8px;
+    -ms-border-radius:     8px;
+    -o-border-radius:      8px;
+    -webkit-border-radius: 8px;
+
+    float: right;
+    padding: 8px 10px;
+
+    width: auto;
+}
+form#styleswitcher select {
+    font-size: 13px;
+    line-height: 13px;
+}
+div#header h1 span {
+    color: inherit;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 30px;
+    padding-left: 25px;
+}
+body {
+    padding-bottom:10px;
+}
+div#main-container {
+    margin: 10px 0 0 20px;
+    float: none;
+}

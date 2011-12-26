@@ -1,0 +1,20 @@
+{
+    "region"  : {
+        "center" : {
+            "title" : "Région Centre"
+        },
+        "east"   : {
+            "title" : "Région Est - Formulaire"
+        }
+    },
+    "buttons" : {
+        "save" : "Enregistrer"
+    },
+    "fields"  : {
+        "labels" : {
+            "firstName"    : "Prénom",
+            "lastName"     : "Nom",
+            "chooseLocale" : "Choisissez vos paramètres régionaux"
+        }
+    }
+}
