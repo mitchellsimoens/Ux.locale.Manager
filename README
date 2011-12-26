@@ -1,0 +1,3 @@
+There are separate demos for Ext JS 4 and Sencha Touch 2. There are some patches included that will get updated as they are fixed.
+
+I have NOT checked every component to see if this works. There are some popular overrides that I have done as an example. More will follow.
