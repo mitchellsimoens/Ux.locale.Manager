@@ -12,8 +12,8 @@ Ext.define('Ux.locale.override.st.Container', {
             title       = locales.title,
             manager     = me.locale,
             defaultText = '';
-
-        if (title && tab) {
+    		
+        if (title) {
             if (Ext.isObject(title)) {
                 defaultText = title.defaultText;
                 title       = title.key;
@@ -26,7 +26,10 @@ Ext.define('Ux.locale.override.st.Container', {
                  * Would like a setTitle on a container to do this
                  */
                 me.title = title;
-                tab.setTitle(title);
+				
+				if(tab){
+               	 	tab.setTitle(title);
+			 	}
             }
         }
 
