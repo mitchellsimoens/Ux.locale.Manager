@@ -7,7 +7,11 @@ Ext.Loader.setConfig({
 
 Ext.require([
     'Ext.Container',
+    'Ext.TitleBar',
+    'Ext.field.Select',
+    'Ext.tab.Panel',
     'Ux.locale.Manager',
+    'Ux.locale.override.st.Component',
     'Ux.locale.override.st.Button',
     'Ux.locale.override.st.Container',
     'Ux.locale.override.st.TitleBar'

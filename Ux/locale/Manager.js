@@ -80,6 +80,10 @@ Ext.define('Ux.locale.Manager', {
         Ext.Ajax.request(ajaxConfig);
     },
 
+    loadScriptTag : function() {
+        console.log('<script> support coming');
+    },
+
     setConfig : function(config) {
         Ext.Object.each(config, function(key, value) {
             this['_' + key] = value;
@@ -89,7 +93,7 @@ Ext.define('Ux.locale.Manager', {
     },
 
     applyLocales : function() {
-        var cmps     = Ext.ComponentQuery.query('component[enableLocale=true]'),
+        var cmps     = Ext.ComponentQuery.query('component[enableLocale]'),
             c        = 0,
             cNum     = cmps.length,
             language = this._language,
