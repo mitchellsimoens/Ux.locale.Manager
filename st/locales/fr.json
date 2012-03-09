@@ -19,5 +19,8 @@
     },
     "misc" : {
         "bottomTitle" : "barre d'outils en bas"
+    },
+    "fields" : {
+        "name" : "Nom"
     }
 }

@@ -19,5 +19,8 @@
     },
     "misc" : {
         "bottomTitle" : "Bottom Toolbar"
+    },
+    "fields" : {
+        "name" : "Name"
     }
 }

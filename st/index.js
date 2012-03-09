@@ -14,7 +14,8 @@ Ext.require([
     'Ux.locale.override.st.Component',
     'Ux.locale.override.st.Button',
     'Ux.locale.override.st.Container',
-    'Ux.locale.override.st.TitleBar'
+    'Ux.locale.override.st.TitleBar',
+    'Ux.locale.override.st.field.Field'
 ], function() {
     Ux.locale.Manager.setConfig({
         ajaxConfig : {
@@ -88,9 +89,17 @@ Ext.setup({
                         {
                             title   : '&nbsp;',
                             locales : {
-                                html  : 'tabs.two.html',
+                                //html  : 'tabs.two.html',
                                 title : 'tabs.two.title'
-                            }
+                            },
+                            items : [
+                                {
+                                    xtype   : 'textfield',
+                                    locales : {
+                                        label : 'fields.name'
+                                    }
+                                }
+                            ]
                         },
                         {
                             title   : '&nbsp;',
