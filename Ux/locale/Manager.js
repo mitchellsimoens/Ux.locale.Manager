@@ -151,5 +151,9 @@ Ext.define('Ux.locale.Manager', {
         this._language = locale;
 
         this.init();
+    }, 
+    
+    getLanguage : function(){
+        return this._language;
     }
 });
