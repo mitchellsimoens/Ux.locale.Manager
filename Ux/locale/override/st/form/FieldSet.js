@@ -7,18 +7,18 @@ Ext.define('Ux.locale.override.st.form.FieldSet', {
 
     setLocale : function(locale) {            
 		console.log("fieldset set locale")
-        var me            = this,
-            locales       = me.locales,
-            title         = locales.title, 
-            instructions  = locales.instructions,
-            manager       = me.locale,
-            defaultText  = '',
-            defaultInstructions  = 'default instructions';
+        var me					= this,
+            locales				= me.locales,
+            title				= locales.title, 
+            instructions		= locales.instructions,
+            manager				= me.locale,
+            defaultText			= '',
+            defaultInstructions	= 'default instructions';
         
         if (title) {
             if (Ext.isObject(title)) {
-                defaultText = title.defaultText;
-                title       = title.key;
+                defaultText	= title.defaultText;
+                title		= title.key;
             }
 
             title = manager.get(title, defaultText);

@@ -6,13 +6,13 @@ Ext.define('Ux.locale.override.st.field.Field', {
     ],
 
     setLocale : function(locale) {
-        var me           		 = this,
-            locales      		 = me.locales,
-            label        		 = locales.label,
-            placeholder  		 = locales.placeHolder,
-            manager      		 = me.locale,
-            defaultPlaceholder	 = '', 
-            defaultLabel		 = '';
+        var me						= this,
+            locales					= me.locales,
+            label					= locales.label,
+            placeholder				= locales.placeHolder,
+            manager					= me.locale,
+            defaultPlaceholder		= '', 
+            defaultLabel			= '';
 
         if (label) {
             if (Ext.isObject(label)) {
@@ -29,8 +29,8 @@ Ext.define('Ux.locale.override.st.field.Field', {
 
 		if (placeholder) {  
             if (Ext.isObject(placeholder)) {
-                defaultPlaceholder = label.defaultPlaceholder;
-                placeholder        = placeholder.key;
+                defaultPlaceholder	= label.defaultPlaceholder;
+                placeholder			= placeholder.key;
             }
 
             placeholder = manager.get(placeholder, defaultPlaceholder);
