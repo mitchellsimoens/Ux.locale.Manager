@@ -7,7 +7,7 @@ Ext.define('Ux.locale.override.st.TitleBar', {
 
     setLocale : function(locale) {
         var me          = this,
-            locales     = me.locales,
+            locales     = me.locales || me.getInitialConfig().locales,
             title       = locales.title,
             manager     = me.locale,
             defaultText = '';

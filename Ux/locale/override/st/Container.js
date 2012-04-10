@@ -8,7 +8,7 @@ Ext.define('Ux.locale.override.st.Container', {
     setLocale : function(locale) {
         var me          = this,
             tab         = me.getTab(),
-            locales     = me.locales,
+            locales     = me.locales || me.getInitialConfig().locales,
             title       = locales.title,
             manager     = me.locale,
             defaultText = '';

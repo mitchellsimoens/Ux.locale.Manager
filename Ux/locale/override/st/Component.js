@@ -28,7 +28,7 @@ Ext.define('Ux.locale.override.st.Component', {
 
     setLocale : function(locale) {
         var me          = this,
-            locales     = me.locales,
+            locales     = me.locales || me.getInitialConfig().locales,
             html        = locales.html,
             manager     = me.locale,
             defaultText = '';
