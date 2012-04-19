@@ -36,7 +36,7 @@ Ext.application({
                 method : 'GET'
             },
             language   : 'en',
-            tpl        : 'http://localhost/UX.locale.Manager/st/locales/{locale}.json',
+            tpl        : '../locales/{locale}.json',
             type       : 'ajax'
         });
 
