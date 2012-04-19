@@ -135,10 +135,11 @@ Ext.define('Ux.locale.Manager', {
 
         res = locale || defaultText;
 
-        if (plural)
+        if (plural) {
             return Ext.util.Inflector.pluralize(res);
-        else
+        } else {
             return res;
+        }
     },
 
     getAvailable : function(simple) {
