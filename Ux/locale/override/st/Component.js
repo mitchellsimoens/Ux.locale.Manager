@@ -24,6 +24,10 @@ Ext.define('Ux.locale.override.st.Component', {
         }
 
         me.callOverridden(arguments);
+
+        if (me.enableLocale) {
+            me.setLocale(Ux.locale.Manager.getLanguage());
+        }
     },
 
     setLocale : function(locale) {
