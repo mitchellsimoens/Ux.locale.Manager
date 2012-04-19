@@ -115,9 +115,11 @@ Ext.define('Ux.locale.Manager', {
     get : function(key, defaultText) {
         var me     = this,
             locale = me._locale,
-            keys   = key.split('.'),
+            plural = key.indexOf('p:') == 0,
+            keys   = (plural ? key.substr(2) : key).split('.'),
             k      = 0,
-            kNum   = keys.length;
+            kNum   = keys.length,
+            res;
 
         if (!me.isLoaded()) {
             return defaultText;
@@ -131,7 +133,12 @@ Ext.define('Ux.locale.Manager', {
             }
         }
 
-        return locale || defaultText;
+        res = locale || defaultText;
+
+        if (plural)
+            return Ext.util.Inflector.pluralize(res);
+        else
+            return res;
     },
 
     getAvailable : function(simple) {
