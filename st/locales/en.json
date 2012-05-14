@@ -15,7 +15,8 @@
     },
     "buttons" : {
         "cancel" : "Cancel",
-        "save"   : "Save"
+        "save"   : "Save",
+        "done"   : "Done"
     },
     "misc" : {
         "bottomTitle" : "Bottom Toolbar"

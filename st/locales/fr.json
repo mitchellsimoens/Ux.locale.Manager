@@ -15,7 +15,8 @@
     },
     "buttons" : {
         "cancel" : "Annuler",
-        "save"   : "Enregistrer"
+        "save"   : "Enregistrer",
+        "done"   : "Fait"
     },
     "misc" : {
         "bottomTitle" : "barre d'outils en bas"
