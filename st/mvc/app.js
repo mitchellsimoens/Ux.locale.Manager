@@ -14,7 +14,8 @@ Ext.application({
         'Ux.locale.override.st.Button',
         'Ux.locale.override.st.Container',
         'Ux.locale.override.st.TitleBar',
-        'Ux.locale.override.st.field.Field'
+        'Ux.locale.override.st.field.Field',
+        'Ux.locale.override.st.picker.Picker'
     ],
 
     controllers : ['Main'],

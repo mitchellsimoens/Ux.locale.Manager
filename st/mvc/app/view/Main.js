@@ -4,7 +4,8 @@ Ext.define('Locale.view.Main', {
         'Ext.TitleBar',
         'Ext.tab.Panel',
         'Ext.Button',
-        'Ext.field.Select'
+        'Ext.field.Select',
+        'Ext.field.DatePicker'
     ],
 
     config: {
@@ -28,6 +29,10 @@ Ext.define('Locale.view.Main', {
                         locales : {
                             text : 'buttons.save'
                         }
+                    },
+                    {
+                        xtype : 'datepickerfield',
+                        align : 'right'
                     },
                     {
                         xtype        : 'selectfield',
