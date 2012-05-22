@@ -19,18 +19,14 @@ Ext.define('Locale.view.Main', {
                 },
                 items   : [
                     {
-                        ui           : 'decline',
-                        enableLocale : true,
-                        locale       : Ux.locale.Manager,
-                        locales      : {
+                        ui      : 'decline',
+                        locales : {
                             text : 'buttons.cancel'
                         }
                     },
                     {
-                        ui           : 'confirm',
-                        enableLocale : true,
-                        locale       : Ux.locale.Manager,
-                        locales      : {
+                        ui      : 'confirm',
+                        locales : {
                             text : 'buttons.save'
                         }
                     },

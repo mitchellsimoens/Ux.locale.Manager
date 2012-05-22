@@ -2,6 +2,11 @@ Ext.Loader.setPath({
     Ux : '../../Ux'
 });
 
+Ext.require([
+    'Ux.locale.Manager',
+    'Ux.locale.override.st.Component'
+]);
+
 Ext.application({
     name: 'Locale',
 
@@ -9,8 +14,6 @@ Ext.application({
         'Ext.MessageBox',
         'Ext.Ajax',
 
-        'Ux.locale.Manager',
-        'Ux.locale.override.st.Component',
         'Ux.locale.override.st.Button',
         'Ux.locale.override.st.Container',
         'Ux.locale.override.st.TitleBar',

@@ -161,7 +161,25 @@ Ext.define('Ux.locale.Manager', {
         this.init();
     }, 
     
-    getLanguage : function(){
+    getLanguage : function() {
         return this._language;
+    },
+
+    isLocalable : function(me, config) {
+        if (!config) {
+            config = {};
+        }
+
+        var locales      = config.locales      || me.locales      || ( me.getLocales      && me.getLocales()      ),
+            enableLocale = config.enableLocale || me.enableLocale || ( me.getEnableLocale && me.getEnableLocale() );
+
+        if (Ext.isObject(locales) || enableLocale) {
+            Ext.apply(config, {
+                enableLocale : true,
+                locale       : this
+            });
+        }
+
+        return config;
     }
 });
