@@ -185,7 +185,9 @@ Ext.define('Ext.tab.Panel', {
             this.callParent(arguments);
 
             if (newIndex != -1) {
-                this.getTabBar().setActiveTab(newIndex);
+                this.forcedChange = true;
+                tabBar.setActiveTab(newIndex);
+                this.forcedChange = false;
 
                 if (oldTab) {
                     oldTab.setActive(false);
@@ -204,9 +206,10 @@ Ext.define('Ext.tab.Panel', {
     doTabChange: function(tabBar, newTab) {
         var oldActiveItem = this.getActiveItem(),
             newActiveItem;
+
         this.setActiveItem(tabBar.indexOf(newTab));
         newActiveItem = this.getActiveItem();
-        return oldActiveItem !== newActiveItem;
+        return this.forcedChange || oldActiveItem !== newActiveItem;
     },
 
     /**
@@ -257,19 +260,19 @@ Ext.define('Ext.tab.Panel', {
             return me.callParent(arguments);
         }
 
-        var tabBar             = me.getTabBar(),
-            initialConfig      = card.getInitialConfig(),
-            tabConfig          = initialConfig.tab || {},
-            tabTitle           = (card.getTitle) ? card.getTitle() : initialConfig.title,
-            tabIconCls         = (card.getIconCls) ? card.getIconCls() : initialConfig.iconCls,
-            tabHidden          = (card.getHidden) ? card.getHidden() : initialConfig.hidden,
-            tabDisabled        = (card.getDisabled) ? card.getDisabled() : initialConfig.disabled,
-            tabBadgeText       = (card.getBadgeText) ? card.getBadgeText() : initialConfig.badgeText,
-            innerItems         = me.getInnerItems(),
-            index              = innerItems.indexOf(card),
-            tabs               = tabBar.getItems(),
-            cards              = me.getInnerItems(),
-            currentTabInstance = (tabs.length >= cards.length) && tabs.getAt(index),
+        var tabBar = me.getTabBar(),
+            initialConfig = card.getInitialConfig(),
+            tabConfig = initialConfig.tab || {},
+            tabTitle = (card.getTitle) ? card.getTitle() : initialConfig.title,
+            tabIconCls = (card.getIconCls) ? card.getIconCls() : initialConfig.iconCls,
+            tabHidden = (card.getHidden) ? card.getHidden() : initialConfig.hidden,
+            tabDisabled = (card.getDisabled) ? card.getDisabled() : initialConfig.disabled,
+            tabBadgeText = (card.getBadgeText) ? card.getBadgeText() : initialConfig.badgeText,
+            innerItems = me.getInnerItems(),
+            index = innerItems.indexOf(card),
+            tabs = tabBar.getItems(),
+            activeTab = tabBar.getActiveTab(),
+            currentTabInstance = (tabs.length >= innerItems.length) && tabs.getAt(index),
             tabInstance;
 
         if (tabTitle && !tabConfig.title) {
@@ -309,6 +312,10 @@ Ext.define('Ext.tab.Panel', {
         card.tab = tabInstance;
 
         me.callParent(arguments);
+
+        if (!activeTab && activeTab !== 0) {
+            tabBar.setActiveTab(tabBar.getActiveItem());
+        }
     },
 
     /**

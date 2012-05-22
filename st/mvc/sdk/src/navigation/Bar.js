@@ -255,7 +255,7 @@ Ext.define('Ext.navigation.Bar', {
             backButton = me.getBackButton(),
             titleText = me.getTitleText(),
             backButtonText = me.getBackButtonText(),
-            animation = view.getLayout().getAnimation(),
+            animation = me.getAnimation() && view.getLayout().getAnimation(),
             animated = animation && animation.isAnimation && view.isPainted(),
             properties, leftGhost, titleGhost, leftProps, titleProps;
 
@@ -299,6 +299,9 @@ Ext.define('Ext.navigation.Bar', {
             if (hasPrevious) {
                 backButton.setText(backButtonText);
                 backButton.show();
+            }
+            else {
+                backButton.hide();
             }
             me.setTitle(titleText);
         }

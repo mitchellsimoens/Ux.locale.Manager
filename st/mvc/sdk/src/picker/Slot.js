@@ -77,7 +77,7 @@ Ext.define('Ext.picker.Slot', {
         /**
          * @cfg {Number} flex
          * @accessor
-         * @hide
+         * @private
          */
         flex: 1,
 

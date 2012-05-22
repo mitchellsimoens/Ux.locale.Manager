@@ -178,19 +178,19 @@ Ext.define('Ext.field.Slider', {
     },
 
     onSliderChange: function() {
-        this.fireEvent('change', [this, Array.prototype.slice.call(arguments)]);
+        this.fireEvent.apply(this, [].concat('change', this, Array.prototype.slice.call(arguments)));
     },
 
     onSliderDragStart: function() {
-        this.fireEvent('dragstart', [this, Array.prototype.slice.call(arguments)]);
+        this.fireEvent.apply(this, [].concat('dragstart', this, Array.prototype.slice.call(arguments)));
     },
 
     onSliderDrag: function() {
-        this.fireEvent('drag', [this, Array.prototype.slice.call(arguments)]);
+        this.fireEvent.apply(this, [].concat('drag', this, Array.prototype.slice.call(arguments)));
     },
 
     onSliderDragEnd: function() {
-        this.fireEvent('dragend', [this, Array.prototype.slice.call(arguments)]);
+        this.fireEvent.apply(this, [].concat('dragend', this, Array.prototype.slice.call(arguments)));
     },
 
     /**

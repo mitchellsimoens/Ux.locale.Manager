@@ -263,9 +263,9 @@ Ext.define('Ext.form.Panel', {
         var me = this;
         if (e && !me.getStandardSubmit()) {
             e.stopEvent();
+        } else {
+            this.submit();
         }
-
-        this.submit();
     },
 
     updateSubmitOnAction: function(newSubmitOnAction) {
@@ -379,6 +379,19 @@ Ext.define('Ext.form.Panel', {
         if (me.getStandardSubmit()) {
             if (options.url && Ext.isEmpty(form.action)) {
                 form.action = options.url;
+            }
+
+            // Spinner fields must have their components enabled *before* submitting or else the value
+            // will not be posted.
+            var fields = this.query('spinnerfield'),
+                ln = fields.length,
+                i, field;
+
+            for (i = 0; i < ln; i++) {
+                field = fields[i];
+                if (!field.getDisabled()) {
+                    field.getComponent().setDisabled(false);
+                }
             }
 
             form.method = (options.method || form.method).toLowerCase();

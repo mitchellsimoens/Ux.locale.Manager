@@ -302,7 +302,6 @@ Ext.define('Ext.Component', {
          *
          * You can also update the flex of a component dynamically using the {@link Ext.layout.AbstractBox#setItemFlex}
          * method.
-         * @accessor
          */
 
         /**
@@ -1462,22 +1461,24 @@ Ext.define('Ext.Component', {
     doSetCentered: Ext.emptyFn,
 
     applyDocked: function(docked) {
-        if (docked) {
-            if (!this.dockPositions[docked]) {
-                //<debug error>
-                Ext.Logger.error("Invalid docking position of '" + docked + "', must be either 'top', 'right', 'bottom', " +
-                    "'left' or `null` (for no docking)", this);
-                //</debug>
-                return;
-            }
+        if (!docked) {
+            return null;
+        }
 
-            if (this.isFloating()) {
-                this.resetFloating();
-            }
+        if (!this.dockPositions[docked]) {
+            //<debug error>
+            Ext.Logger.error("Invalid docking position of '" + docked + "', must be either 'top', 'right', 'bottom', " +
+                "'left' or `null` (for no docking)", this);
+            //</debug>
+            return;
+        }
 
-            if (this.isCentered()) {
-                this.setCentered(false);
-            }
+        if (this.isFloating()) {
+            this.resetFloating();
+        }
+
+        if (this.isCentered()) {
+            this.setCentered(false);
         }
 
         return docked;
@@ -2248,6 +2249,8 @@ var owningTabPanel = grid.up('tabpanel');
             referenceList = this.referenceList,
             i, ln, reference;
 
+        Ext.destroy(this.getTranslatable(), this.getPlugins());
+
         // Remove this component itself from the container if it's currently contained
         if (parent) {
             parent.remove(this, false);
@@ -2260,9 +2263,9 @@ var owningTabPanel = grid.up('tabpanel');
             delete this[reference];
         }
 
+        Ext.destroy(this.innerHtmlElement);
         this.setRecord(null);
 
-        Ext.destroy(this.innerHtmlElement, this.getTranslatable(), this.getPlugins());
         Ext.ComponentManager.unregister(this);
 
         this.callParent();

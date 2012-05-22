@@ -110,7 +110,7 @@ Ext.define('Ext.layout.Card', {
 
         if (!innerItemsContainer) {
             this.innerItemsContainer = innerItemsContainer = Ext.Element.create({
-                className: 'x-layout-card-container'
+                className: this.cls + '-container'
             });
 
             this.container.innerElement.append(innerItemsContainer);

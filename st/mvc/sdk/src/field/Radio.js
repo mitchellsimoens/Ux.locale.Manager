@@ -72,6 +72,14 @@ Ext.define('Ext.field.Radio', {
         return this;
     },
 
+    getSubmitValue: function() {
+        var value = this._value;
+        if (typeof value == "undefined" || value == null) {
+            value = true;
+        }
+        return (this.getChecked()) ? value : null;
+    },
+
     updateChecked: function(newChecked) {
         this.getComponent().setChecked(newChecked);
 

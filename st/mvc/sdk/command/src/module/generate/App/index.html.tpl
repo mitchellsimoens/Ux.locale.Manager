@@ -4,66 +4,52 @@
     <meta charset="UTF-8">
     <title>{name}</title>
     <style type="text/css">
-        /**
+         /**
          * Example of an initial loading indicator.
          * It is recommended to keep this as minimal as possible to provide instant feedback
          * while other resources are still being loaded for the first time
          */
         html, body {
             height: 100%;
+            background-color: #1985D0
         {[ "\}"]}
 
         #appLoadingIndicator {
             position: absolute;
             top: 50%;
-            left: 50%;
-            margin-top: -10px;
-            margin-left: -50px;
-            width: 100px;
-            height: 20px;
+            margin-top: -15px;
+            text-align: center;
+            width: 100%;
+            height: 30px;
+            -webkit-animation-name: appLoadingIndicator;
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: linear;
         {[ "\}"]}
 
         #appLoadingIndicator > * {
             background-color: #FFFFFF;
-            float: left;
-            height: 20px;
-            margin-left: 11px;
-            width: 20px;
-            -webkit-animation-name: appLoadingIndicator;
-            -webkit-border-radius: 13px;
-            -webkit-animation-duration: 0.8s;
-            -webkit-animation-iteration-count: infinite;
-            -webkit-animation-direction: linear;
-            opacity: 0.3
-        {[ "\}"]}
-
-        #appLoadingIndicator > :nth-child(1) {
-            -webkit-animation-delay: 0.18s;
-        {[ "\}"]}
-
-        #appLoadingIndicator > :nth-child(2) {
-            -webkit-animation-delay: 0.42s;
-        {[ "\}"]}
-
-        #appLoadingIndicator > :nth-child(3) {
-            -webkit-animation-delay: 0.54s;
+            display: inline-block;
+            height: 30px;
+            -webkit-border-radius: 15px;
+            margin: 0 5px;
+            width: 30px;
+            opacity: 0.8;
         {[ "\}"]}
 
         @-webkit-keyframes appLoadingIndicator{
             0% {
-                opacity: 0.3
+                opacity: 0.8
             {[ "\}"]}
-
             50% {
-                opacity: 1;
-                background-color:#1985D0
+                opacity: 0
             {[ "\}"]}
-
             100% {
-                opacity:0.3
+                opacity: 0.8
             {[ "\}"]}
         {[ "\}"]}
     </style>
+    <!-- The line below must be kept intact for Sencha Command to build your application -->
     <script id="microloader" type="text/javascript" src="sdk/microloader/development.js"></script>
 </head>
 <body>

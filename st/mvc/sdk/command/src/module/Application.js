@@ -397,8 +397,8 @@ Ext.define('Command.module.Application', {
                                 packagerConfig = Ext.JSON.decode(packagerJson);
 
                                 if (packagerConfig.platform.match(/iOS/)) {
-                                    fs.copyDirectory(path.join(src, 'resources', 'icons'), destination);
-                                    fs.copyDirectory(path.join(src, 'resources', 'loading'), destination);
+                                    fs.copyDirectory(path.join(src, 'resources', 'icons'), destination, ignoreFn);
+                                    fs.copyDirectory(path.join(src, 'resources', 'loading'), destination, ignoreFn);
                                 }
 
                                 packagerConfig.inputPath = destination;
@@ -422,7 +422,8 @@ Ext.define('Command.module.Application', {
             }
 
         }.bind(this), function() {
-            this.error("Failed loading your application from: '"+appUrl+"'. " + (!config.url ? "Try setting the absolute URL to your application for the 'url' item inside 'app.json'" : ""));
+            this.error("Failed loading your application from: '"+appUrl+"'. " + (!config.url ? "Try setting the " +
+                "absolute URL to your application for the 'url' item inside 'app.json'" : ""));
         }.bind(this));
     }
 });

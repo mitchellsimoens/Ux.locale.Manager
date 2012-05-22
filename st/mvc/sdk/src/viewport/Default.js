@@ -66,10 +66,11 @@ Ext.define('Ext.viewport.Default', {
 
         /**
          * @cfg {Boolean} preventZooming
-         * True to attempt to stop zooming when you double tap on the screen on mobile devices.
+         * True to attempt to stop zooming when you double tap on the screen on mobile devices,
+         * typically HTC devices with HTC Sense UI
          * @accessor
          */
-        preventZooming: true,
+        preventZooming: false,
 
         /**
          * @cfg

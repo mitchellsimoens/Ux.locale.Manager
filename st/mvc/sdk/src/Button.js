@@ -650,20 +650,15 @@ Ext.define('Ext.Button', {
 
     // @private
     onPress: function() {
-        var element = this.element,
-            pressedDelay = this.getPressedDelay(),
-            pressedCls = this.getPressedCls();
+        var me = this,
+            element = me.element,
+            pressedDelay = me.getPressedDelay(),
+            pressedCls = me.getPressedCls();
 
-        if (!this.getDisabled()) {
-            this.isPressed = true;
-
-            if (this.hasOwnProperty('releasedTimeout')) {
-                clearTimeout(this.releasedTimeout);
-                delete this.releasedTimeout;
-            }
-
+        if (!me.getDisabled()) {
             if (pressedDelay > 0) {
-                this.pressedTimeout = setTimeout(function() {
+                me.pressedTimeout = setTimeout(function() {
+                    delete me.pressedTimeout;
                     if (element) {
                         element.addCls(pressedCls);
                     }
@@ -682,22 +677,15 @@ Ext.define('Ext.Button', {
 
     // @private
     doRelease: function(me, e) {
-        if (!me.isPressed) {
-            return;
-        }
-
-        me.isPressed = false;
-
-        if (me.hasOwnProperty('pressedTimeout')) {
-            clearTimeout(me.pressedTimeout);
-            delete me.pressedTimeout;
-        }
-
-        me.releasedTimeout = setTimeout(function() {
-            if (me && me.element) {
+        if (!me.getDisabled()) {
+            if (me.hasOwnProperty('pressedTimeout')) {
+                clearTimeout(me.pressedTimeout);
+                delete me.pressedTimeout;
+            }
+            else {
                 me.element.removeCls(me.getPressedCls());
             }
-        }, 10);
+        }
     },
 
     // @private
@@ -714,8 +702,7 @@ Ext.define('Ext.Button', {
      */
     doTap: function(me, e) {
         var handler = me.getHandler(),
-            scope = me.getScope() || me,
-            args = arguments;
+            scope = me.getScope() || me;
 
         if (!handler) {
             return;
@@ -729,9 +716,7 @@ Ext.define('Ext.Button', {
         //where the button was.
         e.preventDefault();
 
-        Ext.defer(function() {
-            handler.apply(scope, args);
-        }, 1);
+        handler.apply(scope, arguments);
     }
 }, function() {
     //<deprecated product=touch since=2.0>

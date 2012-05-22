@@ -39,7 +39,6 @@
  *            {firstName: 'Nigel',   lastName: 'White'},
  *            {firstName: 'Don',     lastName: 'Griffin'},
  *            {firstName: 'Nico',    lastName: 'Ferrero'},
- *            {firstName: 'Nicolas', lastName: 'Belmonte'},
  *            {firstName: 'Jason',   lastName: 'Johnston'}
  *        ]
  *     });

@@ -90,7 +90,7 @@
     "resources": [
         "resources/images",
         "resources/icons",
-        "resources/loading"
+        "resources/startup"
     ],
 
     /**

@@ -91,6 +91,7 @@ Ext.define('Ext.dataview.component.Container', {
             touchstart: 'onItemTouchStart',
             touchend: 'onItemTouchEnd',
             tap: 'onItemTap',
+            taphold: 'onItemTapHold',
             touchmove: 'onItemTouchMove',
             singletap: 'onItemSingleTap',
             doubletap: 'onItemDoubleTap',

@@ -261,7 +261,8 @@ Ext.define('Ext.dataview.NestedList', {
      * @param {Ext.dataview.NestedList} this
      * @param {Ext.dataview.List} list The Ext.dataview.List that is currently active
      * @param {Number} index The index of the item that was tapped
-     * @param {Object} item The item tapped
+     * @param {Ext.dom.Element} target The element tapped
+     * @param {Ext.data.Record} record The record tapped
      * @param {Ext.event.Event} e The event object
      */
 
@@ -401,19 +402,19 @@ Ext.define('Ext.dataview.NestedList', {
     },
 
     onBeforeSelect: function() {
-        this.fireEvent('beforeselect', [this, Array.prototype.slice.call(arguments)]);
+        this.fireEvent.apply(this, [].concat('beforeselect', this, Array.prototype.slice.call(arguments)));
     },
 
     onContainerTap: function() {
-        this.fireEvent('containertap', [this, Array.prototype.slice.call(arguments)]);
+        this.fireEvent.apply(this, [].concat('containertap', this, Array.prototype.slice.call(arguments)));
     },
 
     onSelectionChange: function() {
-        this.fireEvent('selectionchange', [this, Array.prototype.slice.call(arguments)]);
+        this.fireEvent.apply(this, [].concat('selectionchange', this, Array.prototype.slice.call(arguments)));
     },
 
     onItemDoubleTap: function() {
-        this.fireEvent('itemdoubletap', [this, Array.prototype.slice.call(arguments)]);
+        this.fireEvent.apply(this, [].concat('itemdoubletap', this, Array.prototype.slice.call(arguments)));
     },
 
     onStoreBeforeLoad: function() {
@@ -432,12 +433,12 @@ Ext.define('Ext.dataview.NestedList', {
             }
         }
 
-        this.fireEvent('beforeload', [this, Array.prototype.slice.call(arguments)]);
+        this.fireEvent.apply(this, [].concat('beforeload', this, Array.prototype.slice.call(arguments)));
     },
 
     onStoreLoad: function(store, records, successful, operation) {
         this.setMasked(false);
-        this.fireEvent('load', [this, Array.prototype.slice.call(arguments)]);
+        this.fireEvent.apply(this, [].concat('load', this, Array.prototype.slice.call(arguments)));
 
         if (store.indexOf(this.getLastNode()) === -1) {
             this.goToNode(store.getRoot());

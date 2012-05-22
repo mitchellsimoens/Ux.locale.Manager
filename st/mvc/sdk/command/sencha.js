@@ -3,7 +3,7 @@
  * @author Jacky Nguyen <jacky@sencha.com>
  */
 (function() {
-    var sdkToolsVersion = '2.0.0-beta2',
+    var sdkToolsVersion = '2.0.0-beta3',
         sdkToolsEnvName = 'SENCHA_SDK_TOOLS_' + sdkToolsVersion.replace(/[\.-]/g, '_').toUpperCase(),
         coreFiles = [
             "Ext.js",
@@ -48,7 +48,7 @@
     });
 
     command = Ext.create('Command.Cli', {
-        version: '2.0.1',
+        version: '2.0.2',
         currentPath: currentPath,
         binPath: path.join(sdkToolsPath, 'bin'),
         modules: {

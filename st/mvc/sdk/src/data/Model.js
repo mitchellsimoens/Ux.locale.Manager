@@ -226,6 +226,12 @@ Ext.define('Ext.data.Model', {
         observable: 'Ext.mixin.Observable'
     },
 
+    /**
+     * Provides an easy way to quickly determine if a given class is a Model
+     * @property isModel
+     * @type Boolean
+     * @private
+     */
     isModel: true,
 
     requires: [
@@ -309,6 +315,15 @@ Ext.define('Ext.data.Model', {
          */
         proxy: null,
 
+
+        /**
+         * @cfg {Object/String} identifier
+         * The identifier strategy used when creating new instances of this Model that don't have an id defined.
+         * By default this uses the simple identifier strategy that generates id's like 'ext-record-12'. If you are
+         * saving these records in localstorage using a LocalStorage proxy you need to ensure that this identifier
+         * strategy is set to something that always generates unique id's. We provide one strategy by default that
+         * generates these unique id's which is the uuid strategy.
+         */
         identifier: {
             type: 'simple'
         },
@@ -348,6 +363,8 @@ Ext.define('Ext.data.Model', {
         EDIT   : 'edit',
         REJECT : 'reject',
         COMMIT : 'commit',
+
+        cache: {},
 
         generateProxyMethod: function(name) {
             return function() {
@@ -499,7 +516,7 @@ Ext.define('Ext.data.Model', {
 
         id = me.data[idProperty];
         if (id || id === 0) {
-            cached = Ext.data.Model.cache.get(Ext.data.Model.generateCacheId(this, id));
+            cached = Ext.data.Model.cache[Ext.data.Model.generateCacheId(this, id)];
             if (cached) {
                 return cached.mergeData(convertedData || data || {});
             }
@@ -525,7 +542,7 @@ Ext.define('Ext.data.Model', {
             me.id = me.getIdentifier().generate(me);
         }
 
-        Ext.data.Model.cache.add(me);
+        Ext.data.Model.cache[Ext.data.Model.generateCacheId(me)] = me;
 
         if (this.init && typeof this.init == 'function') {
             this.init();
@@ -655,7 +672,8 @@ Ext.define('Ext.data.Model', {
         // exist on the record instance.
         this.internalId = id;
 
-        Ext.data.Model.cache.replace(currentId, this);
+        delete Ext.data.Model.cache[Ext.data.Model.generateCacheId(this, currentId)];
+        Ext.data.Model.cache[Ext.data.Model.generateCacheId(this)] = this;
     },
 
     /**
@@ -1356,7 +1374,7 @@ Ext.define('Ext.data.Model', {
     destroy: function() {
         var me = this;
         me.notifyStores('afterErase', me);
-        Ext.data.Model.cache.remove(me);
+        delete Ext.data.Model.cache[Ext.data.Model.generateCacheId(me)];
         me.raw = me.stores = me.modified = null;
         me.callParent(arguments);
     },
@@ -1665,6 +1683,4 @@ Ext.define('Ext.data.Model', {
             });
         };
     }
-}, function() {
-    this.cache = new Ext.util.Collection(this.generateCacheId);
 });

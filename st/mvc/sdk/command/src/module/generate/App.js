@@ -49,6 +49,7 @@ Ext.define('Command.module.generate.App', {
         this.directory(path.join(cwd, 'resources'), path.join(appPath, 'sdk', 'resources'));
         this.directory(path.join(cwd, 'command', 'src', 'module', 'generate', 'App', 'resources', 'icons'), path.join(appPath, 'resources', 'icons'));
         this.directory(path.join(cwd, 'command', 'src', 'module', 'generate', 'App', 'resources', 'loading'), path.join(appPath, 'resources', 'loading'));
+        this.directory(path.join(cwd, 'command', 'src', 'module', 'generate', 'App', 'resources', 'startup'), path.join(appPath, 'resources', 'startup'));
         this.directory(path.join(cwd, 'command'), path.join(appPath, 'sdk', 'command'));
 
         this.file(path.join(cwd, 'microloader/development.js'), path.join(appPath, 'sdk', 'microloader/development.js'));

@@ -17,11 +17,15 @@ var page = new WebPage();
 
 page.settings.localToRemoteUrlAccessEnabled = true;
 page.settings.ignoreSslErrors = true;
+page.settings.webSecurityEnabled = false;
 
-page.onConsoleMessage = function(message) {
-    if (/^!!!!ERROR!!!!/.test(message)) {
-        error("Error thown from your application with message: " + message.substring(13));
-    }
+page.onError = function(message, trace) {
+    console.log(message);
+    console.log("Stack trace:");
+    trace.forEach(function(item) {
+        console.log('  ', item.file, ':', item.line, ':', item['function'] || 'Anonymous');
+    });
+    phantom.exit(1);
 };
 
 page.open(uri, function(status) {
@@ -30,12 +34,8 @@ page.open(uri, function(status) {
     }
 
     page.evaluate(function() {
-        window.onerror = function(e) {
-            console.log('!!!!ERROR!!!!' + e);
-        };
-
         if (typeof Ext == 'undefined') {
-            console.log('!!!!ERROR!!!!Ext is not defined, please verify that the application URL is correct');
+            throw new Error('Ext is not defined, please verify that the application URL is correct');
             return;
         }
 
@@ -75,6 +75,10 @@ page.open(uri, function(status) {
                         ln -= 2;
                     }
                 }
+
+                fromParts = fromParts.map(function(part){
+                    return decodeURIComponent(part);
+                });
 
                 return fromParts.join('/');
             }

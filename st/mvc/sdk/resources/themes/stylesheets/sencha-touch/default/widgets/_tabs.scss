@@ -123,6 +123,9 @@ $tabs-top-height: $global-row-height - .8em;
       overflow: visible !important;
     }
   }
+  .x-tabbar > * {
+    z-index: 1;
+  }
 }
 
 
