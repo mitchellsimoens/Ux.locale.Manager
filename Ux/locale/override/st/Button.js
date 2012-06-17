@@ -9,7 +9,7 @@ Ext.define('Ux.locale.override.st.Button', {
         var me          = this,
             locales     = me.locales || me.getInitialConfig().locales,
             text        = locales.text,
-            manager     = me.locale,
+            manager     = me.getInitialConfig().locale,
             defaultText = '';
 
         if (text) {
