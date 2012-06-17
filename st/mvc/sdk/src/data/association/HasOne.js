@@ -277,7 +277,7 @@ Ext.define('Ext.data.association.HasOne', {
 
             this.set(foreignKey, value);
 
-            record = Model.cache.get(Model.generateCacheId(associatedModel.modelName, value));
+            record = Model.cache[Model.generateCacheId(associatedModel.modelName, value)];
             if (record) {
                 this[instanceName] = record;
             }

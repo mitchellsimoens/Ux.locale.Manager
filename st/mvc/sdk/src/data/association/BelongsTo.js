@@ -272,7 +272,7 @@ Ext.define('Ext.data.association.BelongsTo', {
             }
 
             if (inverse) {
-                value = Ext.data.Model.cache.get(Ext.data.Model.generateCacheId(inverse.getOwnerModel().modelName, value));
+                value = Ext.data.Model.cache[Ext.data.Model.generateCacheId(inverse.getOwnerModel().modelName, value)];
                 if (value) {
                     if (inverse.getType().toLowerCase() === 'hasmany') {
                         var store = value[inverse.getName()]();
@@ -313,7 +313,7 @@ Ext.define('Ext.data.association.BelongsTo', {
 
             instance = model[instanceName];
             if (!instance) {
-                instance = Ext.data.Model.cache.get(Ext.data.Model.generateCacheId(associatedModel.modelName, foreignKeyId));
+                instance = Ext.data.Model.cache[Ext.data.Model.generateCacheId(associatedModel.modelName, foreignKeyId)];
                 if (instance) {
                     model[instanceName] = instance;
                 }

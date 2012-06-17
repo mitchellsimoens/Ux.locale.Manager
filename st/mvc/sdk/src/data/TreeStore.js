@@ -98,7 +98,7 @@ Ext.define('Ext.data.TreeStore', {
 
         if (!root.isModel) {
             Ext.applyIf(root, {
-                id: me.getDefaultRootId(),
+                id: me.getStoreId() + '-' + me.getDefaultRootId(),
                 text: 'Root',
                 allowDrag: false
             });
@@ -289,9 +289,10 @@ Ext.define('Ext.data.TreeStore', {
         }
         node.endEdit();
 
-        node.fireEvent('load', node, records, successful);
-
         me.loading = false;
+        me.loaded = true;
+
+        node.fireEvent('load', node, records, successful);
         me.fireEvent('load', this, records, successful, operation);
 
         //this is a callback that would have been passed to the 'read' function and is optional

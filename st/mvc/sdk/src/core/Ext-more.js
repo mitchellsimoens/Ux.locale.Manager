@@ -28,7 +28,7 @@
  *
  * [getting_started]: #!/guide/getting_started
  */
-Ext.setVersion('touch', '2.0.1');
+Ext.setVersion('touch', '2.0.1.1');
 
 Ext.apply(Ext, {
     /**

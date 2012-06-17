@@ -109,16 +109,15 @@ Ext.define('Ext.data.writer.Writer', {
             nameProperty = this.getNameProperty(),
             fields = record.getFields(),
             data = {},
-            changes, name, field, key, value, fieldConfig;
+            changes, name, field, key, value;
 
         if (writeAll) {
             fields.each(function(field) {
-                fieldConfig = field.config;
-                if (fieldConfig.persist) {
-                    name = fieldConfig[nameProperty] || fieldConfig.name;
-                    value = record.get(fieldConfig.name);
-                    if (fieldConfig.type.type == 'date') {
-                        value = this.writeDate(fieldConfig, value);
+                if (field.getPersist()) {
+                    name = field.config[nameProperty] || field.getName();
+                    value = record.get(field.getName());
+                    if (field.getType().type == 'date') {
+                        value = this.writeDate(field, value);
                     }
                     data[name] = value;
                 }
@@ -129,12 +128,11 @@ Ext.define('Ext.data.writer.Writer', {
             for (key in changes) {
                 if (changes.hasOwnProperty(key)) {
                     field = fields.get(key);
-                    fieldConfig = field.config;
-                    if (fieldConfig.persist) {
-                        name = fieldConfig[nameProperty] || field.name;
+                    if (field.getPersist()) {
+                        name = field.config[nameProperty] || field.getName();
                         value = changes[key];
-                        if (fieldConfig.type.type == 'date') {
-                            value = this.writeDate(fieldConfig, value);
+                        if (field.getType().type == 'date') {
+                            value = this.writeDate(field, value);
                         }
                         data[name] = value;
                     }

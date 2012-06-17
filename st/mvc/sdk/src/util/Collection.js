@@ -585,7 +585,7 @@ Ext.define('Ext.util.Collection', {
         newCollection.getKey = me.getKey;
 
         for (i = 0; i < length; i++) {
-            if (fn.call(scope || me, items[i], keys[i])) {
+            if (fn.call(scope || me, items[i], me.getKey(items[i]))) {
                 newCollection.add(keys[i], items[i]);
             }
         }
@@ -603,6 +603,7 @@ Ext.define('Ext.util.Collection', {
     insert: function(index, key, item) {
         var me = this,
             sorted = this.sorted,
+            map = this.map,
             filtered = this.filtered;
 
         if (arguments.length == 2) {
@@ -610,19 +611,19 @@ Ext.define('Ext.util.Collection', {
             key = me.getKey(item);
         }
 
-        if (me.containsKey(key)) {
-            me.removeAtKey(key);
-        }
-
         if (index >= me.length || (sorted && me.getAutoSort())) {
             return me.add(key, item);
         }
 
-        this.all.push(item);
-
         if (typeof key != 'undefined' && key !== null) {
-            me.map[key] = item;
+            if (typeof map[key] != 'undefined') {
+                me.replace(key, item);
+                return false;
+            }
+            map[key] = item;
         }
+
+        this.all.push(item);
 
         if (filtered && this.getAutoFilter() && this.mixins.filterable.isFiltered.call(me, item)) {
             return null;
@@ -685,8 +686,9 @@ Ext.define('Ext.util.Collection', {
             item = newItems[i];
 
             if (typeof key != 'undefined' && key !== null) {
-                if (me.containsKey(key)) {
-                    me.removeAtKey(key);
+                if (typeof map[key] != 'undefined') {
+                    me.replace(key, item);
+                    continue;
                 }
                 map[key] = item;
             }

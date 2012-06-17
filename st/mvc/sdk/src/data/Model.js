@@ -514,7 +514,7 @@ Ext.define('Ext.data.Model', {
             data[idProperty] = me.internalId = id;
         }
 
-        id = me.data[idProperty];
+        id = data[idProperty];
         if (id || id === 0) {
             cached = Ext.data.Model.cache[Ext.data.Model.generateCacheId(this, id)];
             if (cached) {
