@@ -19,7 +19,8 @@
         "done"   : "Done"
     },
     "misc" : {
-        "bottomTitle" : "Bottom Toolbar"
+        "bottomTitle"   : "Bottom Toolbar",
+        "loadLocaleMsg" : "Loading..."
     },
     "fields" : {
         "name" : "Name"

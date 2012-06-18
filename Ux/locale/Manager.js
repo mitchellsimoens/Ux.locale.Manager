@@ -157,18 +157,20 @@ Ext.define('Ux.locale.Manager', {
     },
 
     updateLocale : function(locale) {
-        this._language = locale;
+        var me = this;
 
-        if(me._loadingInd){
+        me._language = locale;
+
+        if (me._loadingInd) {
             Ext.Viewport.setMasked({
                 xtype     : 'loadmask',
                 indicator : true,
-                message   : this.get('misc.loadingLocaleMsg')
+                message   : me.get('misc.loadingLocaleMsg', 'Loading...')
              });
         }
 
-        this.init(function(mngr){
-            if(me._loadingInd){
+        me.init(function(mngr) {
+            if (me._loadingInd) {
                 Ext.Viewport.setMasked(false);
             }
         });

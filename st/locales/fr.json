@@ -19,7 +19,8 @@
         "done"   : "Fait"
     },
     "misc" : {
-        "bottomTitle" : "barre d'outils en bas"
+        "bottomTitle"   : "barre d'outils en bas",
+        "loadLocaleMsg" : "Chargement en cours ..."
     },
     "fields" : {
         "name" : "Nom"
