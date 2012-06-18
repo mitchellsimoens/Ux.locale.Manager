@@ -2,11 +2,11 @@ Ext.define('Ux.locale.Manager', {
     singleton : true,
 
     requires : [
-        'Ext.ComponentQuery'
+        'Ext.ComponentQuery',
+        'Ext.Ajax'
     ],
 
     uses : [
-        'Ext.Ajax',
         'Ext.data.Store'
     ],
 
