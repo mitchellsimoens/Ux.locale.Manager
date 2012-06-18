@@ -148,9 +148,17 @@ Ext.define('Ux.locale.Manager', {
     },
 
     updateLocale : function(locale) {
-        this._language = locale;
+        this._language = locale;     
 
-        this.init();
+        Ext.Viewport.setMasked({
+            xtype: 'loadmask',
+            indicator: true,
+            message: this.get('misc.loadingLanguage')        
+        });
+
+        this.init(function(mngr){     
+            Ext.Viewport.setMasked(false);
+        });   
     }, 
     
     getLanguage : function(){
