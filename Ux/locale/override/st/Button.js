@@ -22,6 +22,7 @@ Ext.define('Ux.locale.override.st.Button', {
 
             if (Ext.isString(text)) {
                 me.setText(text);
+                me.refreshIconAlign();
             }
         }
 
