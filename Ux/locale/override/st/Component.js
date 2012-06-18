@@ -10,25 +10,20 @@ Ext.define('Ux.locale.override.st.Component', {
     locales      : null,
 
     constructor : function(config) {
-        config = config || {};
+        var me = this;
 
-        var me           = this,
-            locales      = config.locales      || me.locales      || (me.getLocales && me.getLocales()),
-            enableLocale = config.enableLocale || me.enableLocale || (me.getEnableLocale && me.getEnableLocale());
+        config = Ux.locale.Manager.isLocalable(me, config);
 
-        if (Ext.isObject(locales) || enableLocale) {
-            Ext.apply(me, {
-                enableLocale : true,
-                locale       : Ux.locale.Manager
-            });
+        me.callOverridden([config]);
+
+        if (me.enableLocale) {
+            me.setLocale(Ux.locale.Manager.getLanguage());
         }
-
-        me.callOverridden(arguments);
     },
 
     setLocale : function(locale) {
         var me          = this,
-            locales     = me.locales,
+            locales     = me.locales || me.getInitialConfig().locales,
             html        = locales.html,
             manager     = me.locale,
             defaultText = '';

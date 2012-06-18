@@ -7,7 +7,7 @@ Ext.define('Ux.locale.override.st.Button', {
 
     setLocale : function(locale) {
         var me          = this,
-            locales     = me.locales,
+            locales     = me.locales || me.getInitialConfig().locales,
             text        = locales.text,
             manager     = me.locale,
             defaultText = '';
@@ -22,6 +22,7 @@ Ext.define('Ux.locale.override.st.Button', {
 
             if (Ext.isString(text)) {
                 me.setText(text);
+                me.refreshIconAlign();
             }
         }
 

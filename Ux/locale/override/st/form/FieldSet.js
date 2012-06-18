@@ -1,18 +1,18 @@
 Ext.define('Ux.locale.override.st.form.FieldSet', {
-    override: 'Ext.form.FieldSet',
+    override : 'Ext.form.FieldSet',
 
-    requires: [
-    'Ux.locale.override.st.Component'
+    requires : [
+        'Ux.locale.override.st.Component'
     ],
 
-    setLocale: function(locale) {
+    setLocale : function(locale) {
         var me                  = this,
-            locales             = me.locales,
+            locales             = me.locales || me.getInitialConfig().locales,
             title               = locales.title,
             instructions        = locales.instructions,
             manager             = me.locale,
             defaultText         = '',
-            defaultInstructions = 'default instructions';
+            defaultInstructions = '';
 
         if (title) {
             if (Ext.isObject(title)) {

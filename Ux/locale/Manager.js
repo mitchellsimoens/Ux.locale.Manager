@@ -2,11 +2,11 @@ Ext.define('Ux.locale.Manager', {
     singleton : true,
 
     requires : [
-        'Ext.ComponentQuery'
+        'Ext.ComponentQuery',
+        'Ext.Ajax'
     ],
 
     uses : [
-        'Ext.Ajax',
         'Ext.data.Store'
     ],
 
@@ -115,9 +115,11 @@ Ext.define('Ux.locale.Manager', {
     get : function(key, defaultText) {
         var me     = this,
             locale = me._locale,
-            keys   = key.split('.'),
+            plural = key.indexOf('p:') == 0,
+            keys   = (plural ? key.substr(2) : key).split('.'),
             k      = 0,
-            kNum   = keys.length;
+            kNum   = keys.length,
+            res;
 
         if (!me.isLoaded()) {
             return defaultText;
@@ -131,7 +133,13 @@ Ext.define('Ux.locale.Manager', {
             }
         }
 
-        return locale || defaultText;
+        res = locale || defaultText;
+
+        if (plural) {
+            return Ext.util.Inflector.pluralize(res);
+        } else {
+            return res;
+        }
     },
 
     getAvailable : function(simple) {
@@ -148,20 +156,30 @@ Ext.define('Ux.locale.Manager', {
     },
 
     updateLocale : function(locale) {
-        this._language = locale;     
+        this._language = locale;
 
-        Ext.Viewport.setMasked({
-            xtype: 'loadmask',
-            indicator: true,
-            message: this.get('misc.loadingLanguage')        
-        });
-
-        this.init(function(mngr){     
-            Ext.Viewport.setMasked(false);
-        });   
+        this.init();
     }, 
     
-    getLanguage : function(){
+    getLanguage : function() {
         return this._language;
+    },
+
+    isLocalable : function(me, config) {
+        if (!config) {
+            config = {};
+        }
+
+        var locales      = config.locales      || me.locales      || ( me.getLocales      && me.getLocales()      ),
+            enableLocale = config.enableLocale || me.enableLocale || ( me.getEnableLocale && me.getEnableLocale() );
+
+        if (Ext.isObject(locales) || enableLocale) {
+            Ext.apply(config, {
+                enableLocale : true,
+                locale       : this
+            });
+        }
+
+        return config;
     }
 });
