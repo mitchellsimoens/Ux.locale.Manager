@@ -31,8 +31,14 @@ Ext.define('Locale.view.Main', {
                         }
                     },
                     {
-                        xtype : 'datepickerfield',
-                        align : 'right'
+                        xtype  : 'datepickerfield',
+                        align  : 'right',
+                        picker : {
+                            enableLocale : true,
+                            locales      : {
+                                months : 'months'
+                            }
+                        }
                     },
                     {
                         xtype        : 'selectfield',

@@ -18,23 +18,25 @@ Ext.application({
         'Ux.locale.override.st.Container',
         'Ux.locale.override.st.TitleBar',
         'Ux.locale.override.st.field.Field',
-        'Ux.locale.override.st.picker.Picker'
+        'Ux.locale.override.st.field.DatePicker',
+        'Ux.locale.override.st.picker.Picker',
+        'Ux.locale.override.st.picker.Date'
     ],
 
     controllers : ['Main'],
     views       : ['Main'],
 
-    icon: {
-        57: 'resources/icons/Icon.png',
-        72: 'resources/icons/Icon~ipad.png',
-        114: 'resources/icons/Icon@2x.png',
-        144: 'resources/icons/Icon~ipad@2x.png'
+    icon        : {
+        57  : 'resources/icons/Icon.png',
+        72  : 'resources/icons/Icon~ipad.png',
+        114 : 'resources/icons/Icon@2x.png',
+        144 : 'resources/icons/Icon~ipad@2x.png'
     },
 
-    phoneStartupScreen: 'resources/loading/Homescreen.jpg',
-    tabletStartupScreen: 'resources/loading/Homescreen~ipad.jpg',
+    phoneStartupScreen  : 'resources/loading/Homescreen.jpg',
+    tabletStartupScreen : 'resources/loading/Homescreen~ipad.jpg',
 
-    launch: function() {
+    launch : function() {
         Ux.locale.Manager.setConfig({
             ajaxConfig : {
                 method : 'GET'
