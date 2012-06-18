@@ -14,6 +14,7 @@ Ext.define('Ux.locale.Manager', {
     _beforeLoad : Ext.emptyFn,
     _language   : 'en',
     _loaded     : true,
+    _loadingInd : true,
     _locale     : {},
     _locales    : [
         { abbr : 'en', text : 'English' },
@@ -158,7 +159,19 @@ Ext.define('Ux.locale.Manager', {
     updateLocale : function(locale) {
         this._language = locale;
 
-        this.init();
+        if(me._loadingInd){
+            Ext.Viewport.setMasked({
+                xtype     : 'loadmask',
+                indicator : true,
+                message   : this.get('misc.loadingLocaleMsg')
+             });
+        }
+
+        this.init(function(mngr){
+            if(me._loadingInd){
+                Ext.Viewport.setMasked(false);
+            }
+        });
     }, 
     
     getLanguage : function() {
