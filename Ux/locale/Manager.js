@@ -185,6 +185,10 @@ Ext.define('Ux.locale.Manager', {
             config = {};
         }
 
+        if (Ext.isObject(me.config.locales)) {
+            config.locales = me.config.locales;
+        }
+
         var locales      = config.locales      || me.locales      || ( me.getLocales      && me.getLocales()      ),
             enableLocale = config.enableLocale || me.enableLocale || ( me.getEnableLocale && me.getEnableLocale() );
 
