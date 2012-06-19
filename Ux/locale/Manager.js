@@ -189,7 +189,7 @@ Ext.define('Ux.locale.Manager', {
             enableLocale = config.enableLocale || me.enableLocale || ( me.getEnableLocale && me.getEnableLocale() );
 
         if (Ext.isObject(locales) || enableLocale) {
-            Ext.apply(config, {
+            Ext.apply(me, {
                 enableLocale : true,
                 locale       : this
             });
