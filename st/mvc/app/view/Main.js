@@ -72,8 +72,6 @@ Ext.define('Locale.view.Main', {
                         items : [ 
                             {
                                 xtype: 'fieldset',  
-                                // title: "title",
-                                // instruction: "instructions",    
                                 locales : {
                                     title : 'fieldsets.title',
                                     instructions: 'fieldsets.instructions'
