@@ -23,7 +23,13 @@
         "loadLocaleMsg" : "Loading..."
     },
     "fields" : {
-        "name" : "Name"
+        "name" : "Name",
+        "dateLabel" : "Date",
+        "datePlaceholder" : "Choose Date"
+    }, 
+    "fieldsets" : {
+        "title" : "Fieldset Title",
+        "instructions" : "fieldset instructions"
     },
     "months" : {
         "1"  : "January",

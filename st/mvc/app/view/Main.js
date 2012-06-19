@@ -5,7 +5,8 @@ Ext.define('Locale.view.Main', {
         'Ext.tab.Panel',
         'Ext.Button',
         'Ext.field.Select',
-        'Ext.field.DatePicker'
+        'Ext.field.DatePicker',
+        'Ext.form.FieldSet'
     ],
 
     config: {
@@ -68,12 +69,37 @@ Ext.define('Locale.view.Main', {
                         locales : {
                             title : 'tabs.two.title'
                         },
-                        items : [
+                        items : [ 
                             {
-                                xtype   : 'textfield',
+                                xtype: 'fieldset',  
                                 locales : {
-                                    label : 'fields.name'
-                                }
+                                    title : 'fieldsets.title',
+                                    instructions: 'fieldsets.instructions'
+                                },
+                                defaults: {
+                                    labelWidth: '45%'
+                                },
+                                items: [
+                                    {
+                                        xtype   : 'textfield',
+                                        locales : {
+                                            label : 'fields.name'
+                                        }
+                                    },
+                                    {
+                                        xtype  : 'datepickerfield',
+                                        locales : {
+                                            label : 'fields.dateLabel',
+                                            placeHolder: 'fields.datePlaceholder',
+                                        },   
+                                        picker : {
+                                            enableLocale : true,
+                                            locales      : {
+                                                months : 'months'
+                                            }
+                                        }
+                                    },
+                                ]
                             }
                         ]
                     },
