@@ -90,7 +90,8 @@
     "resources": [
         "resources/images",
         "resources/icons",
-        "resources/loading"
+        "resources/loading",
+        "../locales"
     ],
 
     /**
@@ -123,7 +124,7 @@
         "product": "touch",
         "minVersion": 3,
         "debug": false,
-        "logger": "no"
+        "logger": "yes"
     },
 
     /**
