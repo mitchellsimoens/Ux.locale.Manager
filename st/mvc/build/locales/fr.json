@@ -23,7 +23,13 @@
         "loadLocaleMsg" : "Chargement en cours ..."
     },
     "fields" : {
-        "name" : "Nom"
+        "name" : "Nom",
+        "dateLabel" : "la date",
+        "datePlaceholder" : "choisir la date"
+    },
+    "fieldsets" : {
+        "title" : "Ensemble de champs",
+        "instructions" : "des instructions en français"
     },
     "months" : {
         "1"  : "Janvier",
