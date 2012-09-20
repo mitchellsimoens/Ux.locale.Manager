@@ -25,6 +25,6 @@ Ext.define('Ux.locale.override.st.Button', {
             }
         }
 
-        me.callOverridden(arguments);
+        me.callParent(arguments);
     }
 });
