@@ -14,7 +14,7 @@ Ext.define('Ux.locale.override.st.Component', {
 
         config = Ux.locale.Manager.isLocalable(me, config);
 
-        me.callOverridden([config]);
+        me.callParent([config]);
 
         if (me.enableLocale) {
             me.setLocale(Ux.locale.Manager.getLanguage());
