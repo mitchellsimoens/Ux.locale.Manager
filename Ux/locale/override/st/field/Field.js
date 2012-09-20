@@ -40,6 +40,6 @@ Ext.define('Ux.locale.override.st.field.Field', {
             }
         }
 
-        me.callOverridden(arguments);
+        me.callParent(arguments);
     }
 });
