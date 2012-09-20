@@ -33,7 +33,7 @@ Ext.define('Ux.locale.override.st.Container', {
             }
         }
 
-        this.callOverridden(arguments);
+        this.callParent(arguments);
     },
 
     /**
