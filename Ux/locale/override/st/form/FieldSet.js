@@ -39,6 +39,6 @@ Ext.define('Ux.locale.override.st.form.FieldSet', {
             }
         }
 
-        me.callOverridden(arguments);
+        me.callParent(arguments);
     }
 });

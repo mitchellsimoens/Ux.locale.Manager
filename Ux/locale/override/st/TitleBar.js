@@ -25,6 +25,6 @@ Ext.define('Ux.locale.override.st.TitleBar', {
             }
         }
 
-        this.callOverridden(arguments);
+        this.callParent(arguments);
     }
 });
