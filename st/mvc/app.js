@@ -1,24 +1,25 @@
+//<debug>
 Ext.Loader.setPath({
-    Ux : '../../Ux'
+    'Ext'    : 'touch/src',
+    'Locale' : 'app',
+    'Ux'     : '../../Ux'
 });
-
-Ext.require([
-    'Ux.locale.Manager',
-    'Ux.locale.override.st.Component'
-]);
+//</debug>
 
 Ext.application({
     name: 'Locale',
 
     requires: [
         'Ext.MessageBox',
-        'Ext.Ajax',
+
+        'Ux.locale.Manager',
+        'Ux.locale.override.st.Component',
 
         'Ux.locale.override.st.Button',
         'Ux.locale.override.st.Container',
         'Ux.locale.override.st.TitleBar',
         'Ux.locale.override.st.field.Field',
-        'Ux.locale.override.st.field.DatePicker', 
+        'Ux.locale.override.st.field.DatePicker',
         'Ux.locale.override.st.form.FieldSet',
         'Ux.locale.override.st.picker.Picker',
         'Ux.locale.override.st.picker.Date'
@@ -27,22 +28,30 @@ Ext.application({
     controllers : ['Main'],
     views       : ['Main'],
 
-    icon        : {
-        57  : 'resources/icons/Icon.png',
-        72  : 'resources/icons/Icon~ipad.png',
-        114 : 'resources/icons/Icon@2x.png',
-        144 : 'resources/icons/Icon~ipad@2x.png'
+    icon: {
+        '57': 'resources/icons/Icon.png',
+        '72': 'resources/icons/Icon~ipad.png',
+        '114': 'resources/icons/Icon@2x.png',
+        '144': 'resources/icons/Icon~ipad@2x.png'
     },
 
-    phoneStartupScreen  : 'resources/loading/Homescreen.jpg',
-    tabletStartupScreen : 'resources/loading/Homescreen~ipad.jpg',
+    isIconPrecomposed: true,
 
-    launch : function() {
+    startupImage: {
+        '320x460': 'resources/startup/320x460.jpg',
+        '640x920': 'resources/startup/640x920.png',
+        '768x1004': 'resources/startup/768x1004.png',
+        '748x1024': 'resources/startup/748x1024.png',
+        '1536x2008': 'resources/startup/1536x2008.png',
+        '1496x2048': 'resources/startup/1496x2048.png'
+    },
+
+    launch: function() {
         Ux.locale.Manager.setConfig({
             ajaxConfig : {
                 method : 'GET'
             },
-            language   : 'en',
+            language   : navigator.language.split('-')[0],
             tpl        : '../locales/{locale}.json',
             type       : 'ajax'
         });

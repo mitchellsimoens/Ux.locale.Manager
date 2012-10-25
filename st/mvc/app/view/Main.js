@@ -69,9 +69,9 @@ Ext.define('Locale.view.Main', {
                         locales : {
                             title : 'tabs.two.title'
                         },
-                        items : [ 
+                        items : [
                             {
-                                xtype: 'fieldset',  
+                                xtype: 'fieldset',
                                 locales : {
                                     title : 'fieldsets.title',
                                     instructions: 'fieldsets.instructions'
@@ -91,7 +91,7 @@ Ext.define('Locale.view.Main', {
                                         locales : {
                                             label : 'fields.dateLabel',
                                             placeHolder: 'fields.datePlaceholder',
-                                        },   
+                                        },
                                         picker : {
                                             enableLocale : true,
                                             locales      : {

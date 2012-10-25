@@ -22,7 +22,10 @@
      * List of all JavaScript assets in the right execution order.
      * Each item is an object with the following format:
      *      {
-     *          "path": "path/to/script.js" // Relative path to this app.json file
+     *          "path": "path/to/script.js" // Path to file, if local file it must be relative to this app.json file
+     *          "remote": true              // (Optional)
+     *                                      // - Defaults to undefined (falsey) to signal a local file which will be copied
+     *                                      // - Specify true if this file is a remote file which will not to be copied
      *          "update": "delta"           // (Optional)
      *                                      //  - If not specified, this file will only be loaded once, and
      *                                      //    cached inside localStorage until this value is changed.
@@ -33,12 +36,12 @@
      */
     "js": [
         {
-            "path": "sdk/sencha-touch.js"
+            "path": "touch/sencha-touch.js"
         },
         {
             "path": "app.js",
             "bundle": true,  /* Indicates that all class dependencies are concatenated into this file when build */
-            "update": "all"
+            "update": "delta"
         }
     ],
 
@@ -46,7 +49,10 @@
      * List of all CSS assets in the right inclusion order.
      * Each item is an object with the following format:
      *      {
-     *          "path": "path/to/item.css" // Relative path to this app.json file
+     *          "path": "path/to/item.css" // Path to file, if local file it must be relative to this app.json file
+     *          "remote": true             // (Optional)
+     *                                     // - Defaults to undefined (falsey) to signal a local file which will be copied
+     *                                     // - Specify true if this file is a remote file which will not to be copied
      *          "update": "delta"          // (Optional)
      *                                     //  - If not specified, this file will only be loaded once, and
      *                                     //    cached inside localStorage until this value is changed to either one below
@@ -58,7 +64,7 @@
     "css": [
         {
             "path": "resources/css/app.css",
-            "update": "all"
+            "update": "delta"
         }
     ],
 
@@ -90,8 +96,7 @@
     "resources": [
         "resources/images",
         "resources/icons",
-        "resources/loading",
-        "../locales"
+        "resources/startup"
     ],
 
     /**
@@ -124,12 +129,12 @@
         "product": "touch",
         "minVersion": 3,
         "debug": false,
-        "logger": "yes"
+        "logger": false
     },
 
     /**
      * Uniquely generated id for this application, used as prefix for localStorage keys.
      * Normally you should never change this value.
      */
-    "id": "7c5bf3c0-830d-11e1-9f67-e14caa31743a"
+    "id": "d7a0329f-3536-4d92-ae4c-f0dd4bd1127a"
 }
