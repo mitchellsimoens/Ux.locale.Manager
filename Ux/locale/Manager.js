@@ -12,7 +12,7 @@ Ext.define('Ux.locale.Manager', {
 
     _ajaxConfig : {},
     _beforeLoad : Ext.emptyFn,
-    _language   : 'en',
+    _language   : navigator.language.split('-')[0],
     _loaded     : true,
     _loadingInd : true,
     _locale     : {},
@@ -82,7 +82,7 @@ Ext.define('Ux.locale.Manager', {
     },
 
     loadScriptTag : function() {
-        console.log('<script> support coming');
+        console.log('<script/> support coming');
     },
 
     setConfig : function(config) {
