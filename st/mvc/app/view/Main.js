@@ -9,9 +9,9 @@ Ext.define('Locale.view.Main', {
         'Ext.form.FieldSet'
     ],
 
-    config: {
-        layout     : 'fit',
-        items      : [
+    config : {
+        layout : 'fit',
+        items  : [
             {
                 xtype   : 'titlebar',
                 docked  : 'bottom',
@@ -59,7 +59,7 @@ Ext.define('Locale.view.Main', {
                 items : [
                     {
                         title   : '&nbsp;',
-                        locales  : {
+                        locales : {
                             html  : 'tabs.one.html',
                             title : 'tabs.one.title'
                         }
@@ -69,17 +69,17 @@ Ext.define('Locale.view.Main', {
                         locales : {
                             title : 'tabs.two.title'
                         },
-                        items : [
+                        items   : [
                             {
-                                xtype: 'fieldset',
-                                locales : {
-                                    title : 'fieldsets.title',
-                                    instructions: 'fieldsets.instructions'
+                                xtype    : 'fieldset',
+                                locales  : {
+                                    title        : 'fieldsets.title',
+                                    instructions : 'fieldsets.instructions'
                                 },
-                                defaults: {
-                                    labelWidth: '45%'
+                                defaults : {
+                                    labelWidth : '45%'
                                 },
-                                items: [
+                                items    : [
                                     {
                                         xtype   : 'textfield',
                                         locales : {
@@ -87,18 +87,18 @@ Ext.define('Locale.view.Main', {
                                         }
                                     },
                                     {
-                                        xtype  : 'datepickerfield',
+                                        xtype   : 'datepickerfield',
                                         locales : {
-                                            label : 'fields.dateLabel',
-                                            placeHolder: 'fields.datePlaceholder',
+                                            label       : 'fields.dateLabel',
+                                            placeHolder : 'fields.datePlaceholder'
                                         },
-                                        picker : {
+                                        picker  : {
                                             enableLocale : true,
                                             locales      : {
                                                 months : 'months'
                                             }
                                         }
-                                    },
+                                    }
                                 ]
                             }
                         ]
