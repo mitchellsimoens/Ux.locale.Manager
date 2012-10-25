@@ -5,6 +5,10 @@ Ext.define('Ux.locale.override.st.Button', {
         'Ux.locale.override.st.Component'
     ],
 
+    constructor : function() {
+        this.callSuper(arguments);
+    },
+
     setLocale : function(locale) {
         var me          = this,
             locales     = me.locales || me.getInitialConfig().locales,

@@ -36,20 +36,27 @@ Ext.define('Ux.locale.override.st.Container', {
         this.callParent(arguments);
     },
 
-    /**
-     * As of PR3, there is no method or property to get the associated Ext.tab.Tab instance
-     */
-    getTab : function() {
-        var me       = this,
-            tabpanel = me.up('tabpanel');
+    getTab : function () {
+        var me = this,
+            tabpanel, tabBar, items, index;
+
+        if (me.tab) {
+            return me.tab;
+        }
+
+        /**
+         * As of 2.0.0 PR3, there is no method or property to get the associated Ext.tab.Tab instance
+         */
+
+        tabpanel = me.up('tabpanel');
 
         if (!tabpanel) {
             return;
         }
 
-        var tabBar   = tabpanel.getTabBar(),
-            items    = tabpanel.getInnerItems(),
-            index    = Ext.Array.indexOf(items, me);
+        tabBar = tabpanel.getTabBar();
+        items = tabpanel.getInnerItems();
+        index = Ext.Array.indexOf(items, me);
 
         return tabBar.getComponent(index);
     }
