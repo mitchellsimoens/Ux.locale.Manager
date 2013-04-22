@@ -13,14 +13,24 @@
             "title" : "Third Tab"
         }
     },
+    "pages" : {
+        "one" : {
+            "title" : "First Page"
+        },
+        "extra" : {
+            "title" : "Extra Page"
+        }
+    },
     "buttons" : {
         "cancel" : "Cancel",
         "save"   : "Save",
-        "done"   : "Done"
+        "done"   : "Done",
+        "addView": "Add View"
     },
     "misc" : {
         "bottomTitle"   : "Bottom Toolbar",
-        "loadLocaleMsg" : "Loading..."
+        "loadLocaleMsg" : "Loading...",
+        "back"          : "Back"
     },
     "fields" : {
         "name" : "Name",
