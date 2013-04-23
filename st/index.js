@@ -38,7 +38,7 @@ Ext.require([
 Ext.setup({
     onReady: function () {
 
-        var x = new Ext.Container({
+        new Ext.Container({
             fullscreen : true,
             layout     : 'fit',
             items      : [
@@ -140,7 +140,6 @@ Ext.setup({
                         {
                             title   : '&nbsp;',
                             locales : {
-                                //html  : 'tabs.three.html',
                                 title: 'tabs.three.title',
                             },
                             items: [
