@@ -51,7 +51,7 @@ Ext.application({
             ajaxConfig : {
                 method : 'GET'
             },
-            language   : navigator.language.split('-')[0],
+            language   : Ext.os.is.Windows? navigator.userLanguage.split('-')[0] : navigator.language.split('-')[0],
             tpl        : '../locales/{locale}.json',
             type       : 'ajax'
         });
