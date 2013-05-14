@@ -12,7 +12,7 @@ Ext.define('Ux.locale.Manager', {
 
     _ajaxConfig : {},
     _beforeLoad : Ext.emptyFn,
-    _language   : Ext.os.is.Windows? navigator.userLanguage.split('-')[0] : navigator.language.split('-')[0],
+    _language   : navigator.language.split('-')[0],
     _loaded     : true,
     _loadingInd : true,
     _locale     : {},
