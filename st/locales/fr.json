@@ -13,14 +13,24 @@
             "title" : "Troisième Onglet"
         }
     },
+    "pages" : {
+        "one" : {
+            "title" : "Première Page"
+        },
+        "extra" : {
+            "title" : "Page Supplémentaire"
+        }
+    },
     "buttons" : {
         "cancel" : "Annuler",
         "save"   : "Enregistrer",
-        "done"   : "Fait"
+        "done"   : "Fait",
+        "addView": "Ajouter Voir"
     },
     "misc" : {
         "bottomTitle"   : "barre d'outils en bas",
-        "loadLocaleMsg" : "Chargement en cours ..."
+        "loadLocaleMsg" : "Chargement en cours ...",
+        "back"          : "Retour"
     },
     "fields" : {
         "name" : "Nom",

@@ -11,6 +11,7 @@ Ext.require([
     'Ext.field.Select',
     'Ext.field.DatePicker',
     'Ext.tab.Panel',
+    'Ext.navigation.View',
 
     'Ux.locale.Manager',
     'Ux.locale.override.st.Component',
@@ -20,7 +21,9 @@ Ext.require([
     'Ux.locale.override.st.field.Field',
     'Ux.locale.override.st.field.DatePicker',
     'Ux.locale.override.st.picker.Picker',
-    'Ux.locale.override.st.picker.Date'
+    'Ux.locale.override.st.picker.Date',
+    'Ux.locale.override.st.navigation.View',
+    'Ux.locale.override.st.navigation.Bar'
 ], function() {
     Ux.locale.Manager.setConfig({
         ajaxConfig : {
@@ -56,6 +59,25 @@ Ext.setup({
                             ui      : 'confirm',
                             locales : {
                                 text : 'buttons.save'
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            locales : {
+                                text: 'buttons.addView'
+                            },
+                            listeners: {
+                                tap: function()
+                                {
+                                    Ext.Viewport.down('navigationview').push(
+                                        {
+                                            xtype: 'panel',
+                                            locales: {
+                                                title: 'pages.extra.title',
+                                            }
+                                        }
+                                    );
+                                }
                             }
                         },
                         {
@@ -118,9 +140,23 @@ Ext.setup({
                         {
                             title   : '&nbsp;',
                             locales : {
-                                html  : 'tabs.three.html',
-                                title : 'tabs.three.title'
-                            }
+                                title: 'tabs.three.title',
+                            },
+                            items: [
+                                    {
+                                        xtype: 'navigationview',
+                                        locales: {
+                                            defaultBackButtonText: 'misc.back'
+                                        },
+                                        items: [
+                                            {
+                                                locales: {
+                                                    title: 'pages.one.title',
+                                                }
+                                            }
+                                        ]
+                                    }
+                            ]
                         }
                     ]
                 }
