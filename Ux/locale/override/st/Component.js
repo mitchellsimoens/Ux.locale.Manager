@@ -27,7 +27,8 @@ Ext.define('Ux.locale.override.st.Component', {
             html        = locales.html,
             tpl         = locales.tpl,
             manager     = me.locale,
-            defaultText = '';
+            defaultText = '',
+            defaultTpl  = '';
 
         if (html) {
             if (Ext.isObject(html)) {
