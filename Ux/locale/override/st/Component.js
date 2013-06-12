@@ -25,8 +25,10 @@ Ext.define('Ux.locale.override.st.Component', {
         var me          = this,
             locales     = me.locales || me.getInitialConfig().locales,
             html        = locales.html,
+            tpl         = locales.tpl,
             manager     = me.locale,
-            defaultText = '';
+            defaultText = '',
+            defaultTpl  = '';
 
         if (html) {
             if (Ext.isObject(html)) {
@@ -38,6 +40,20 @@ Ext.define('Ux.locale.override.st.Component', {
 
             if (Ext.isString(html)) {
                 me.setHtml(html);
+            }
+        }
+        
+        if (tpl) {
+            if (Ext.isObject(tpl)) {
+                defaultTpl = tpl.defaultTpl;
+                tpl = tpl.key;
+            }
+
+            tpl = manager.get(tpl, defaultTpl);
+
+            if (Ext.isString(tpl)) {
+                me.setTpl(tpl);
+                me.setData(me.getData());
             }
         }
     }
