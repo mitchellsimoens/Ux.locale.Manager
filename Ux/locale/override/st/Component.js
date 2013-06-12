@@ -43,17 +43,17 @@ Ext.define('Ux.locale.override.st.Component', {
         }
         
         if (tpl) {
-			if (Ext.isObject(tpl)) {
-				defaultTpl = tpl.defaultTpl;
-				tpl = tpl.key;
-			}
+            if (Ext.isObject(tpl)) {
+                defaultTpl = tpl.defaultTpl;
+                tpl = tpl.key;
+            }
 
-			tpl = manager.get(tpl, defaultTpl);
+            tpl = manager.get(tpl, defaultTpl);
 
-			if (Ext.isString(tpl)) {
-				me.setTpl(tpl);
-				me.setData(me.getData());
-			}
-		}
+            if (Ext.isString(tpl)) {
+                me.setTpl(tpl);
+                me.setData(me.getData());
+            }
+        }
     }
 });
