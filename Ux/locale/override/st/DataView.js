@@ -44,5 +44,18 @@ Ext.define('Ux.locale.override.st.DataView', {
             // Bypassing setter because sometimes we pass the same record (different data)
             container.updateListItem(record, me.getViewItems()[newIndex]);
         }
+    },
+
+    // allow for i18n translated data elements
+    prepareData: function(data, index, record) {
+        data = this.callParent(arguments);
+        return this.i18nData(data);
+    },
+
+    updateData: function(data) {
+        if (!data['i18nTranslationData']) {
+            // this isn't locale configuration data, so update the store with the data
+            this.callParent(arguments);
+        }
     }
 });
