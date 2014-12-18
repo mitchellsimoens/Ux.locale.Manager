@@ -8,6 +8,7 @@ Ext.define('Ux.locale.override.st.Container', {
     setLocale : function(locale) {
         var me          = this,
             tab         = me.getTab(),
+            navBar      = me.getNavigationBar(),
             locales     = me.locales || me.getInitialConfig().locales,
             title       = locales.title,
             manager     = me.locale,
@@ -30,6 +31,9 @@ Ext.define('Ux.locale.override.st.Container', {
 				if(tab){
                	 	tab.setTitle(title);
 			 	}
+                if(navBar){
+                    navBar.setTitle(title);
+                }
             }
         }
 
@@ -59,5 +63,19 @@ Ext.define('Ux.locale.override.st.Container', {
         index = Ext.Array.indexOf(items, me);
 
         return tabBar.getComponent(index);
+    },
+
+    getNavigationBar: function() {
+        var me = this,
+            navView, navigationBar, items, index;
+
+        navView = me.up('navigationview');
+
+        if (!navView) {
+            return;
+        }
+
+        navigationBar = navView.getNavigationBar();
+        return navigationBar;
     }
 });
