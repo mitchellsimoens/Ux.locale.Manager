@@ -41,9 +41,12 @@ Ext.define('Ux.locale.override.st.dataview.component.SimpleListItem', {
                 me.locales = record.raw.locales;
                 Ux.locale.Manager.isLocalable(me, false);
                 me.setLocale(Ux.locale.Manager.getLanguage());
+
+                // As Ux.locale.Manager will eventually call setLocale, which will call updateData, so no need to call parent for updateData
+                return;
             }
         }
 
-        me.callParent(record);
+        me.callParent(arguments);
     }
 });
