@@ -35,12 +35,15 @@ Ext.define('Ux.locale.override.st.dataview.component.SimpleListItem', {
     updateRecord: function(record) {
         var me = this;
 
-        if (record.raw.locales) {
-            me.enableLocale = true;
-            me.locales = record.raw.locales;
-            Ux.locale.Manager.isLocalable(me, false);
+        if (record) {
+            if (record.raw.locales) {
+                me.enableLocale = true;
+                me.locales = record.raw.locales;
+                Ux.locale.Manager.isLocalable(me, false);
+                me.setLocale(Ux.locale.Manager.getLanguage());
+            }
         }
 
-        me.callParent(arguments);
+        me.callParent(record);
     }
 });
